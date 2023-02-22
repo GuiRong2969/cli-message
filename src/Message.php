@@ -157,6 +157,36 @@ class Message
     }
 
     /**
+     * 行列输出
+     *
+     * @param string $content
+     * @param string $suffix
+     */
+    public static function line($content, $suffix = PHP_EOL)
+    {
+        echo $content, $suffix;
+    }
+
+    /**
+     * 提醒输出
+     *
+     * @param string $content
+     * @param string $suffix
+     */
+    public static function alert($content, $suffix = PHP_EOL)
+    {
+        if (!isset(self::$defaultMessage['alert']) || !self::$defaultMessage['alert'] instanceof self) {
+            $message = new self();
+            $style = new Style();
+            $style->setForegroundColor(Style::COLOR_LIGHT_GREEN);
+            $message->setStyle($style);
+            self::$defaultMessage['error'] = $message;
+        }
+        self::$defaultMessage['alert']->setContent($content);
+        echo self::$defaultMessage['alert'], $suffix;
+    }
+
+    /**
      * 错误输出
      *
      * @param string $content
@@ -168,6 +198,25 @@ class Message
             $message = new self();
             $style = new Style();
             $style->setForegroundColor(Style::COLOR_LIGHT_RED)->setBold();
+            $message->setStyle($style);
+            self::$defaultMessage['error'] = $message;
+        }
+        self::$defaultMessage['error']->setContent($content);
+        echo self::$defaultMessage['error'], $suffix;
+    }
+
+    /**
+     * 错误增强输出
+     *
+     * @param string $content
+     * @param string $suffix
+     */
+    public static function errorStrong($content, $suffix = PHP_EOL)
+    {
+        if (!isset(self::$defaultMessage['error']) || !self::$defaultMessage['error'] instanceof self) {
+            $message = new self();
+            $style = new Style();
+            $style->setBackgroundColor(124)->setBold();
             $message->setStyle($style);
             self::$defaultMessage['error'] = $message;
         }
