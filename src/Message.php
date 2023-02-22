@@ -180,7 +180,7 @@ class Message
             $style = new Style();
             $style->setForegroundColor(Style::COLOR_LIGHT_GREEN);
             $message->setStyle($style);
-            self::$defaultMessage['error'] = $message;
+            self::$defaultMessage['alert'] = $message;
         }
         self::$defaultMessage['alert']->setContent($content);
         echo self::$defaultMessage['alert'], $suffix;
