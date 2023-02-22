@@ -8,7 +8,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Chency147\CliMessage;
+namespace Guirong\CliMessage;
 
 class Message
 {
