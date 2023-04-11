@@ -213,15 +213,16 @@ class Message
      */
     public static function errorStrong($content, $suffix = PHP_EOL)
     {
-        if (!isset(self::$defaultMessage['error']) || !self::$defaultMessage['error'] instanceof self) {
+        if (!isset(self::$defaultMessage['errorStrong']) || !self::$defaultMessage['errorStrong'] instanceof self) {
             $message = new self();
             $style = new Style();
             $style->setBackgroundColor(124)->setBold();
             $message->setStyle($style);
-            self::$defaultMessage['error'] = $message;
+            self::$defaultMessage['errorStrong'] = $message;
         }
-        self::$defaultMessage['error']->setContent($content);
-        echo self::$defaultMessage['error'], $suffix;
+        self::$defaultMessage['errorStrong']->setContent($content);
+        
+        echo self::$defaultMessage['errorStrong'], $suffix;
     }
 
     /**
