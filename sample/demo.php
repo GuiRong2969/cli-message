@@ -8,8 +8,8 @@
  * file that was distributed with this source code.
  */
 
-use Chency147\CliMessage\Message;
-use Chency147\CliMessage\Style;
+use Guirong\CliMessage\Message;
+use Guirong\CliMessage\Style;
 
 require dirname(__DIR__) . DIRECTORY_SEPARATOR . 'vendor/autoload.php';
 
